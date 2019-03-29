@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leaderment.claim.mapper.WarrantyClaimMapper">
+  <resultMap id="BaseResultMap" type="com.leaderment.claim.pojo.db.WarrantyClaim">
+    <id column="claim_id" jdbcType="INTEGER" property="claimId" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="email_address" jdbcType="VARCHAR" property="emailAddress" />
+    <result column="product_model" jdbcType="VARCHAR" property="productModel" />
+    <result column="defective_product_qty" jdbcType="INTEGER" property="defectiveProductQty" />
+    <result column="series_no" jdbcType="VARCHAR" property="seriesNo" />
+    <result column="order_details" jdbcType="VARCHAR" property="orderDetails" />
+    <result column="photo_path" jdbcType="VARCHAR" property="photoPath" />
+    <result column="receiver_name" jdbcType="VARCHAR" property="receiverName" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="address_line1" jdbcType="VARCHAR" property="addressLine1" />
+    <result column="address_line2" jdbcType="VARCHAR" property="addressLine2" />
+    <result column="country_code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="post_code" jdbcType="VARCHAR" property="postCode" />
+    <result column="claim_time" jdbcType="TIMESTAMP" property="claimTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from warranty_claim
+    where claim_id = #{claimId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.leaderment.claim.pojo.db.WarrantyClaim">
+    insert into warranty_claim (claim_id, order_id, email_address, 
+      product_model, defective_product_qty, series_no, 
+      order_details, photo_path, receiver_name, 
+      phone_number, address_line1, address_line2, 
+      country_code, state, city, 
+      post_code, claim_time)
+    values (#{claimId,jdbcType=INTEGER}, #{orderId,jdbcType=VARCHAR}, #{emailAddress,jdbcType=VARCHAR}, 
+      #{productModel,jdbcType=VARCHAR}, #{defectiveProductQty,jdbcType=INTEGER}, #{seriesNo,jdbcType=VARCHAR}, 
+      #{orderDetails,jdbcType=VARCHAR}, #{photoPath,jdbcType=VARCHAR}, #{receiverName,jdbcType=VARCHAR}, 
+      #{phoneNumber,jdbcType=VARCHAR}, #{addressLine1,jdbcType=VARCHAR}, #{addressLine2,jdbcType=VARCHAR}, 
+      #{countryCode,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{postCode,jdbcType=VARCHAR}, #{claimTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.leaderment.claim.pojo.db.WarrantyClaim">
+    update warranty_claim
+    set order_id = #{orderId,jdbcType=VARCHAR},
+      email_address = #{emailAddress,jdbcType=VARCHAR},
+      product_model = #{productModel,jdbcType=VARCHAR},
+      defective_product_qty = #{defectiveProductQty,jdbcType=INTEGER},
+      series_no = #{seriesNo,jdbcType=VARCHAR},
+      order_details = #{orderDetails,jdbcType=VARCHAR},
+      photo_path = #{photoPath,jdbcType=VARCHAR},
+      receiver_name = #{receiverName,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      address_line1 = #{addressLine1,jdbcType=VARCHAR},
+      address_line2 = #{addressLine2,jdbcType=VARCHAR},
+      country_code = #{countryCode,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      post_code = #{postCode,jdbcType=VARCHAR},
+      claim_time = #{claimTime,jdbcType=TIMESTAMP}
+    where claim_id = #{claimId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select claim_id, order_id, email_address, product_model, defective_product_qty, series_no, 
+    order_details, photo_path, receiver_name, phone_number, address_line1, address_line2, 
+    country_code, state, city, post_code, claim_time
+    from warranty_claim
+    where claim_id = #{claimId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select claim_id, order_id, email_address, product_model, defective_product_qty, series_no, 
+    order_details, photo_path, receiver_name, phone_number, address_line1, address_line2, 
+    country_code, state, city, post_code, claim_time
+    from warranty_claim
+  </select>
+</mapper>
