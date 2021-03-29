@@ -10,6 +10,7 @@
     <result column="series_no" jdbcType="VARCHAR" property="seriesNo" />
     <result column="order_details" jdbcType="VARCHAR" property="orderDetails" />
     <result column="photo_path" jdbcType="VARCHAR" property="photoPath" />
+    <result column="screenshot_path" jdbcType="VARCHAR" property="screenshotPath" />
     <result column="receiver_name" jdbcType="VARCHAR" property="receiverName" />
     <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
     <result column="address_line1" jdbcType="VARCHAR" property="addressLine1" />
@@ -18,6 +19,8 @@
     <result column="state" jdbcType="VARCHAR" property="state" />
     <result column="city" jdbcType="VARCHAR" property="city" />
     <result column="post_code" jdbcType="VARCHAR" property="postCode" />
+    <result column="subscribe" jdbcType="BIT" property="subscribe" />
+    <result column="business_name" jdbcType="VARCHAR" property="businessName" />
     <result column="claim_time" jdbcType="TIMESTAMP" property="claimTime" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -27,16 +30,18 @@
   <insert id="insert" parameterType="com.leaderment.claim.pojo.db.WarrantyClaim">
     insert into warranty_claim (claim_id, order_id, email_address, 
       product_model, defective_product_qty, series_no, 
-      order_details, photo_path, receiver_name, 
+      order_details, photo_path,screenshot_path, receiver_name, 
       phone_number, address_line1, address_line2, 
       country_code, state, city, 
-      post_code, claim_time)
+      post_code, subscribe,business_name, claim_time
+      )
     values (#{claimId,jdbcType=INTEGER}, #{orderId,jdbcType=VARCHAR}, #{emailAddress,jdbcType=VARCHAR}, 
       #{productModel,jdbcType=VARCHAR}, #{defectiveProductQty,jdbcType=INTEGER}, #{seriesNo,jdbcType=VARCHAR}, 
-      #{orderDetails,jdbcType=VARCHAR}, #{photoPath,jdbcType=VARCHAR}, #{receiverName,jdbcType=VARCHAR}, 
+      #{orderDetails,jdbcType=VARCHAR}, #{photoPath,jdbcType=VARCHAR},#{screenshotPath,jdbcType=VARCHAR}, #{receiverName,jdbcType=VARCHAR}, 
       #{phoneNumber,jdbcType=VARCHAR}, #{addressLine1,jdbcType=VARCHAR}, #{addressLine2,jdbcType=VARCHAR}, 
       #{countryCode,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
-      #{postCode,jdbcType=VARCHAR}, #{claimTime,jdbcType=TIMESTAMP})
+      #{postCode,jdbcType=VARCHAR}, #{subscribe,jdbcType=BIT}, #{businessName,jdbcType=VARCHAR},#{claimTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.leaderment.claim.pojo.db.WarrantyClaim">
     update warranty_claim
@@ -55,20 +60,21 @@
       state = #{state,jdbcType=VARCHAR},
       city = #{city,jdbcType=VARCHAR},
       post_code = #{postCode,jdbcType=VARCHAR},
+      subscribe = #{subscribe,jdbcType=BIT},
       claim_time = #{claimTime,jdbcType=TIMESTAMP}
     where claim_id = #{claimId,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select claim_id, order_id, email_address, product_model, defective_product_qty, series_no, 
     order_details, photo_path, receiver_name, phone_number, address_line1, address_line2, 
-    country_code, state, city, post_code, claim_time
+    country_code, state, city, post_code, subscribe, claim_time
     from warranty_claim
     where claim_id = #{claimId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select claim_id, order_id, email_address, product_model, defective_product_qty, series_no, 
     order_details, photo_path, receiver_name, phone_number, address_line1, address_line2, 
-    country_code, state, city, post_code, claim_time
+    country_code, state, city, post_code, subscribe, claim_time
     from warranty_claim
   </select>
 </mapper>

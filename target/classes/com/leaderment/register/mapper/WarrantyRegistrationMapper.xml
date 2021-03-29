@@ -10,6 +10,11 @@
     <result column="channel" jdbcType="VARCHAR" property="channel" />
     <result column="product_model" jdbcType="VARCHAR" property="productModel" />
     <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="subscribe" jdbcType="BIT" property="subscribe" />
+    <result column="business_name" jdbcType="VARCHAR" property="businessName" />
+    <result column="use_purpose" jdbcType="VARCHAR" property="usePurpose" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="purchase_date" jdbcType="VARCHAR" property="purchaseDate" />
     <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -19,12 +24,13 @@
   <insert id="insert" parameterType="com.leaderment.register.pojo.WarrantyRegistration">
     insert into warranty_registration (register_id, name, country, 
       email_address, phone_model, channel, 
-      product_model, order_id, register_time
-      )
+      product_model, order_id, subscribe, business_name,use_purpose,gender,purchase_date,
+      register_time)
     values (#{registerId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
       #{emailAddress,jdbcType=VARCHAR}, #{phoneModel,jdbcType=VARCHAR}, #{channel,jdbcType=VARCHAR}, 
-      #{productModel,jdbcType=VARCHAR}, #{orderId,jdbcType=VARCHAR}, #{registerTime,jdbcType=TIMESTAMP}
-      )
+      #{productModel,jdbcType=VARCHAR}, #{orderId,jdbcType=VARCHAR}, #{subscribe,jdbcType=BIT}, 
+      #{businessName,jdbcType=VARCHAR}, #{usePurpose,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{purchaseDate,jdbcType=VARCHAR},
+      #{registerTime,jdbcType=TIMESTAMP})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.leaderment.register.pojo.WarrantyRegistration">
     update warranty_registration
@@ -35,18 +41,22 @@
       channel = #{channel,jdbcType=VARCHAR},
       product_model = #{productModel,jdbcType=VARCHAR},
       order_id = #{orderId,jdbcType=VARCHAR},
+      subscribe = #{subscribe,jdbcType=BIT},
       register_time = #{registerTime,jdbcType=TIMESTAMP}
     where register_id = #{registerId,jdbcType=INTEGER}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select register_id, name, country, email_address, phone_model, channel, product_model, 
-    order_id, register_time
+    order_id, subscribe, register_time
     from warranty_registration
     where register_id = #{registerId,jdbcType=INTEGER}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select register_id, name, country, email_address, phone_model, channel, product_model, 
-    order_id, register_time
+    order_id, subscribe, register_time
     from warranty_registration
+  </select>
+  <select id="getCountByEmail" resultType="Integer">
+    select count(*) from warranty.warranty_registration where order_id =#{orderId} and business_name =#{businessName}
   </select>
 </mapper>

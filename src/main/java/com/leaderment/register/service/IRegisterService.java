@@ -14,4 +14,6 @@ public interface IRegisterService {
 	    List<WarrantyRegistration> selectAll();
 
 	    void updateByPrimaryKey(WarrantyRegistration record);
+
+		Integer getCountByEmail(String orderId,String businessName);
 }

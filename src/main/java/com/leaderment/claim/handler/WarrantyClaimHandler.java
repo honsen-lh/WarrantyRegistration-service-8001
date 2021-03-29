@@ -1,6 +1,5 @@
 package com.leaderment.claim.handler;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -29,12 +28,11 @@ public class WarrantyClaimHandler {
 	public ResultBean addwarrantyClaim(@RequestBody WarrantyClaim warrantyClaim){
 		ResultBean resultBean = new ResultBean();
 		try {
-			warrantyClaim.setClaimTime(new Date());
 			warrantyClaimService.insert(warrantyClaim);
 			resultBean.setData("ok");
 		} catch (Exception e) {
 			resultBean.setCode(StatusCode.HTTP_FAILURE);
-			resultBean.setMsg("Create warrantyClaim Failed！");
+			resultBean.setMsg("Create warrantyClaim Failed！"+e);
 			LOGGER.error("参数信息："+warrantyClaim.toString(),e);
 		}
 		return resultBean;

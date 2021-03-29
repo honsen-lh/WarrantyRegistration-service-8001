@@ -7,11 +7,11 @@ com\leaderment\handler\DiscoveryHandler.class
 com\leaderment\claim\service\impl\WarrantyClaimServiceImpl.class
 com\leaderment\util\Tool.class
 com\leaderment\entity\ResultBean.class
+com\leaderment\config\CorsConfig.class
 com\leaderment\register\pojo\WarrantyRegistration.class
 com\leaderment\claim\mapper\WarrantyClaimMapper.class
 com\leaderment\util\StringUtils.class
 com\leaderment\claim\handler\UploadPhotoHandler.class
-com\leaderment\config\CorsFilter.class
 com\leaderment\util\ExportUtils.class
 com\leaderment\constant\StatusCode.class
 com\leaderment\register\handler\RegisterHandler.class
@@ -19,6 +19,7 @@ com\leaderment\claim\handler\WarrantyClaimHandler.class
 com\leaderment\util\MD5Util.class
 com\leaderment\util\HttpClientUtil$2.class
 com\leaderment\util\ExportBeanExcel.class
+com\leaderment\config\RedisConfig.class
 com\leaderment\config\Swagger2.class
 com\leaderment\claim\service\IWarrantyClaimService.class
 com\leaderment\util\HttpClientUtil$1.class

@@ -1,9 +1,13 @@
 package com.leaderment.claim.pojo.db;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class WarrantyClaim {
-    private Integer claimId;
+public class WarrantyClaim implements Serializable{
+   
+	private static final long serialVersionUID = 1L;
+
+	private Integer claimId;
 
     private String orderId;
 
@@ -18,6 +22,8 @@ public class WarrantyClaim {
     private String orderDetails;
 
     private String photoPath;
+    
+    private String screenshotPath;
 
     private String receiverName;
 
@@ -34,6 +40,10 @@ public class WarrantyClaim {
     private String city;
 
     private String postCode;
+    
+    private Boolean subscribe;
+    
+    private String businessName;
 
     private Date claimTime;
 
@@ -92,8 +102,16 @@ public class WarrantyClaim {
     public void setOrderDetails(String orderDetails) {
         this.orderDetails = orderDetails == null ? null : orderDetails.trim();
     }
+    
+    public String getScreenshotPath() {
+		return screenshotPath;
+	}
 
-    public String getPhotoPath() {
+	public void setScreenshotPath(String screenshotPath) {
+		this.screenshotPath = screenshotPath;
+	}
+
+	public String getPhotoPath() {
         return photoPath;
     }
 
@@ -164,12 +182,39 @@ public class WarrantyClaim {
     public void setPostCode(String postCode) {
         this.postCode = postCode == null ? null : postCode.trim();
     }
+    
+    public Boolean getSubscribe() {
+		return subscribe;
+	}
 
-    public Date getClaimTime() {
+	public void setSubscribe(Boolean subscribe) {
+		this.subscribe = subscribe;
+	}
+	
+	public String getBusinessName() {
+		return businessName;
+	}
+
+	public void setBusinessName(String businessName) {
+		this.businessName = businessName;
+	}
+
+	public Date getClaimTime() {
         return claimTime;
     }
 
     public void setClaimTime(Date claimTime) {
         this.claimTime = claimTime;
     }
+
+	@Override
+	public String toString() {
+		return "WarrantyClaim [claimId=" + claimId + ", orderId=" + orderId + ", emailAddress=" + emailAddress
+				+ ", productModel=" + productModel + ", defectiveProductQty=" + defectiveProductQty + ", seriesNo="
+				+ seriesNo + ", orderDetails=" + orderDetails + ", photoPath=" + photoPath + ", receiverName="
+				+ receiverName + ", phoneNumber=" + phoneNumber + ", addressLine1=" + addressLine1 + ", addressLine2="
+				+ addressLine2 + ", countryCode=" + countryCode + ", state=" + state + ", city=" + city + ", postCode="
+				+ postCode + ", subscribe=" + subscribe + ", claimTime=" + claimTime + "]";
+	}
+    
 }

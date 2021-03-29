@@ -35,4 +35,9 @@ public class RegisterServiceImpl implements IRegisterService {
 		warrantyRegistrationMapper.updateByPrimaryKey(record);
 	}
 
+	@Override
+	public Integer getCountByEmail(String orderId,String businessName) {
+		return warrantyRegistrationMapper.getCountByEmail(orderId,businessName);
+	}
+
 }

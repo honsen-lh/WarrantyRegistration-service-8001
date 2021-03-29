@@ -1,28 +1,14 @@
 server:
   port: 8001
+   
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://lmdevnts0001.leaderment.com:3306/warranty?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://47.91.78.254:3306/warranty?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
-    password: Ldm_1910%
-  application:
-    name: warranty-service
-  redis:
-    database: 0
-    host: 127.0.0.1
-    port: 6379
-    password: 
-    timeout: 5000
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
-    healthcheck:
-      enabled: true                           # 开启健康检查（依赖spring-boot-starter-actuator）  
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
-    status-page-url: http://localhost:${server.port}/swagger-ui.html
-    lease-renewal-interval-in-seconds: 3      # 心跳时间，即服务续约间隔时间（缺省为30s）
-    lease-expiration-duration-in-seconds: 7  # 发呆时间，即服务续约到期时间（缺省为90s）  
+    password: D0llioU83
+
+  http: 
+    multipart: 
+      maxFileSize: 20MB
+      maxRequestSize: 20MB

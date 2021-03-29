@@ -1,9 +1,16 @@
 package com.leaderment.register.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class WarrantyRegistration {
-    private Integer registerId;
+public class WarrantyRegistration implements Serializable{
+	
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private Integer registerId;
 
     private String name;
 
@@ -18,6 +25,16 @@ public class WarrantyRegistration {
     private String productModel;
 
     private String orderId;
+    
+    private Boolean subscribe;
+    
+    private String businessName;
+    
+    private String usePurpose;
+    
+    private String gender;
+    
+    private String purchaseDate;
 
     private Date registerTime;
 
@@ -84,20 +101,52 @@ public class WarrantyRegistration {
     public void setOrderId(String orderId) {
         this.orderId = orderId == null ? null : orderId.trim();
     }
+    
+    public Boolean getSubscribe() {
+		return subscribe;
+	}
 
-    public Date getRegisterTime() {
+	public void setSubscribe(Boolean subscribe) {
+		this.subscribe = subscribe;
+	}
+
+	public Date getRegisterTime() {
         return registerTime;
     }
-
-    public void setRegisterTime(Date registerTime) {
-        this.registerTime = registerTime;
-    }
-
-	@Override
-	public String toString() {
-		return "WarrantyRegistration [registerId=" + registerId + ", name=" + name + ", country=" + country
-				+ ", emailAddress=" + emailAddress + ", phoneModel=" + phoneModel + ", channel=" + channel
-				+ ", productModel=" + productModel + ", orderId=" + orderId + ", registerTime=" + registerTime + "]";
+	
+    public String getBusinessName() {
+		return businessName;
 	}
     
+	public String getUsePurpose() {
+		return usePurpose;
+	}
+
+	public void setUsePurpose(String usePurpose) {
+		this.usePurpose = usePurpose;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getPurchaseDate() {
+		return purchaseDate;
+	}
+
+	public void setPurchaseDate(String purchaseDate) {
+		this.purchaseDate = purchaseDate;
+	}
+
+	public void setBusinessName(String businessName) {
+		this.businessName = businessName;
+	}
+
+	public void setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
+    }
 }

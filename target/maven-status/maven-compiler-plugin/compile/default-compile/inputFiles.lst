@@ -1,10 +1,12 @@
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\claim\handler\WarrantyClaimHandler.java
+D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\config\CorsConfig.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\register\service\impl\RegisterServiceImpl.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\util\ExportUtils.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\claim\handler\UploadHandler.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\claim\handler\UploadPhotoHandler.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\claim\pojo\db\WarrantyClaim.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\util\ExportBeanExcel.java
+D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\config\RedisConfig.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\claim\mapper\WarrantyClaimMapper.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\constant\StatusCode.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\util\MD5Util.java
@@ -18,7 +20,6 @@ D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\claim\service\impl\WarrantyClaimServiceImpl.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\util\HttpClientUtil.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\register\service\IRegisterService.java
-D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\config\CorsFilter.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\entity\ResultBean.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\util\StringUtils.java
 D:\workspace-new\WarrantyRegistration-service-8001\src\main\java\com\leaderment\ClientApplication8001.java
